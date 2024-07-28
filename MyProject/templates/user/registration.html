@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+ {% load static %}
+
+ {% block content %}
+<style>
+    .form-control
+    {
+    margin-bottom:10px;
+    }
+</style>
+ <div class="row">
+     <div class="h2"><b class="text-warning">R</b>egistration<i class="fa fa-users"></i></div>
+     <div class="col-sm-4"></div>
+     <div class="col-sm-4 p-5 bg-warning">
+         <form method="POST" autocomplete="off" enctype="multipart/form-data">
+             {% csrf_token%}
+              Name<input type="text" placeholder="Enter Your Name" class="form-control" name="name"/>
+             contact No<input type="text" placeholder="Enter Your Contact" class="form-control" name="contact"/>
+             Email<input type="text" placeholder="Enter Your email" class="form-control" name="email"/>
+             Profile<input type="file"  class="form-control" name="FU" required/>
+             Password<input type="password" class="form-control" name="passwd"/>
+            Message<textarea class="form-control" placeholder="Enter Your address" name="address"></textarea>
+            <input type="submit" value="save" class="btn btn-light"/>
+
+
+         </form>
+
+     </div>
+     <div class="col-sm-4"></div>
+ </div>
+ {% endblock %}

@@ -1,0 +1,72 @@
+ {% extends 'base.html'%}
+ {% load static %}
+
+ {% block content %}
+ <style>
+  .form-control
+  {
+  margin-bottom:8px;
+  text-color:white;
+  }
+  .txta
+  {
+  min-height:80px;
+  }
+  .img
+  {
+  background:url('{% static "images/c1.webp" %}');
+  background-size:cover;
+
+  }
+   .im
+  {
+   background:rgba(0,0,0,0.7);
+  }
+
+ </style>
+ <div class="row img">
+<div class="h2 text-center p-3" style="text-shadow:2px 2px 2px black;">CONTACT <b style="color:navy;">US  <i class="fa fa-phone"></i></b></div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10 im" style="min-height:500px;">
+   <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 p-2" style="color:white;">
+
+         <center><div class="fs-1 "><b style="text-shadow:2px 2px 2px blue; color:white;">Contact</b></div>
+               </center>
+
+        <form method="post" autocomplete="off">
+            {% csrf_token %}<!--cross site reforgrey-->
+            {% if S %}
+            <div class="alert alert-success">
+                Thanks for enquiry
+            </div>
+         {% endif %}
+
+     Name<input type="text" placeholder="Enter Your Name" class="form-control" name="name"/>
+     contact No.<input type="text" placeholder="Enter Your Contact" class="form-control" name="contact"/>
+     Email<input type="text" placeholder="Enter Your email" class="form-control" name="email"/>
+     Address<input type="text" placeholder="Enter Your Address" class="form-control" name="address"/>
+     Message<textarea class="form-control" name="message"></textarea>
+     <input type="submit" value="save" class="w-100" style="background:skyblue; height:50px;"/>
+     </form>
+    </div>
+
+
+       <div class="col-sm-5" p-2>
+               <center><div class="fs-1 "><b style="text-shadow:2px 2px 2px blue; color:white;">Location</b></div>
+               </center><br/>
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.3488306154986!2d82.09556231496697!3d26.765148383191395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a058829e9841d%3A0xbe2f429242a89ea5!
+             2sGovernment%20Girls%20Polytechnic%20Ayodhya!5e0!3m2!1sen!2sin!4v1633316938634!5m2!1sen
+             !2sin" width="500px;" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+             </iframe>
+        </section>
+       </div>
+
+
+
+   </div>
+  </div>
+  <div class="col-sm-1"></div>
+ </div>
+ {% endblock %}

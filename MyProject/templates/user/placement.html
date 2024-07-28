@@ -1,0 +1,80 @@
+  {% extends 'base.html'%}
+ {% load static %}
+
+ {% block content %}
+  <style>
+  .card
+  {
+ transition:all ease 2s;
+  }
+      .card:hover
+      {
+   transform:scale(1.1);
+   background:#e5f3ff;
+   transition:all ease 2s;
+   box-shadow:0px 0px 20px 7px black;
+
+     }
+     .s
+     {
+     background-image:linear-gradient(navy,skyblue);
+     }
+  </style>
+  <div class="row p-3 bg-light">
+      <div class="h2 text-center p-3" style="text-shadow:2px 2px 2px black;">OUR <b style="color:navy;">PLACEMENTS</b>
+         <i class="fa fa-image"></i></div>
+      <div class="col-sm-3 s">
+          <div class="row ">
+
+              <ul class="list-group">
+                   <li class="list-group-item text-center h4 m-2">course details</li>
+              </ul>
+                  {% if course %}
+                  {% for x in course %}
+              <a href="/user/placement?msg={{x.id}}"><li class="list-group-item h5">{{x.cname}}</li></a>
+                  {% endfor %}
+                  {% endif %}
+               <a href="/user/placement/"><li class="list-group-item h5">All Placement</li></a>
+
+</ul>
+          </div>
+          <div class="bg-light mt-4">
+              <p class="h3 text-center">PLACEMENT<b class="text-danger">100%</b></p>
+              <p class="h5 text-center">
+
+                  Engineers can opt for higher studies, job or entrepreneurship after graduation.
+                  The most basic challenge faced by the industry is to produce an output of satisfactory
+                  quality at competitive prices. In order to make profits, it is the job of an engineer to
+                  sell either his services or products. In every industry, technical organization or even
+                  government job, his services are indispensable.
+
+              </p>
+          </div>
+      </div>
+      <div class="col-sm-9">
+          <div class="row">
+              {% if placement %}
+              {% for x in placement %}
+              <div class="col-sm-3 p-3 s">
+                  <div class="card w-100">
+  <img src="/{{x.stupic}}" class="card-img-top" style="height:100px;" alt="...">
+  <div class="card-body">
+      <p class="card-text text-center">
+      <h5 class="fs-5 text-center">Name:<b style="color:navy">{{x.name}}</b></h5>
+      <h5 class="text-dark text-center">Branch:<b style="color:navy">{{x.branch}}</b></h5>
+      <h5 class="text-dark text-center">Course:<b style="color:navy">{{x.pcourse}}</b></h5>
+      <h5 class="text-dark text-center">Company:<b style="color:navy">{{x.cmpname}}</b></h5>
+      <h5 class="text-dark text-center">City:<b style="color:navy">{{x.city}}</b></h5>
+      <h5 class="text-dark text-center">Year:<b style="color:navy">{{x.pyear}}</b></h5>
+      <h5 class="text-dark text-center">designation:<b style="color:navy">{{x.designation}}</b></h5>
+      <h5 class="text-dark text-center">Date:<b style="color:navy">{{x.pdate}}</b></h5>
+      </p>
+  </div>
+</div>
+              </div>
+              {% endfor %}
+              {% endif %}
+          </div>
+      </div>
+  </div>
+ {% endblock %}
